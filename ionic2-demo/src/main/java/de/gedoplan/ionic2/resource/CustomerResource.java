@@ -2,6 +2,7 @@ package de.gedoplan.ionic2.resource;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import de.gedoplan.ionic2.model.Customer;
+import de.gedoplan.ionic2.model.views.DetailView;
 import de.gedoplan.ionic2.model.views.ListView;
 import de.gedoplan.ionic2.repository.CustomerRepository;
 import java.util.List;
@@ -10,6 +11,7 @@ import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -31,4 +33,12 @@ public class CustomerResource {
     public List<Customer> getCustomers() {
         return customerRepository.getAll();
     }
+
+    @GET
+    @Path("{id}")
+    @JsonView(DetailView.class)
+    public Customer getCustomers(@PathParam("id") String id) {
+        return customerRepository.getCustomerByID(id);
+    }
+
 }
