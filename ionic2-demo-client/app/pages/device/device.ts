@@ -13,7 +13,14 @@ export class DevicePage {
 
     constructor(platform: Platform) {
         platform.ready().then(() => {
-            this.device = device;
+            if (typeof device !== 'undefined'){  //device is a cordova plugin = not define in browser mode
+                this.device = device;
+            }
+            else{
+                this.device={
+                  "device": "not available in browsers"   
+                }
+            }
         });
     }
     
