@@ -1,0 +1,9 @@
+<app-menu title="kunden"></app-menu>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let customer of customers" (click)=showCustomer(customer)>
+             <ion-badge item-right>{{customer.customerID}}</ion-badge>{{customer.companyName}}
+        </ion-item>
+    </ion-list>
+</ion-content>

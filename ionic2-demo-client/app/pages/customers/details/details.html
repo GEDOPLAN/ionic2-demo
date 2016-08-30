@@ -1,0 +1,58 @@
+<app-menu title="{{customer?.companyName}}"></app-menu>
+
+<ion-content padding>
+    <p *ngIf="customer">
+
+    <ion-item class="button">
+        <a href="tel:+{{customer.phone}}" class="button">
+            <ion-icon name="call"></ion-icon>
+            kunde anrufen
+        </a>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>customerID</ion-label>
+        <ion-input type="text" [(ngModel)]="customer.customerID" name="customerID"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>companyName</ion-label>
+        <ion-input type="text" [(ngModel)]="customer.companyName" name="companyName"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>contactName</ion-label>
+        <ion-input type="text" [(ngModel)]="customer.contactName" name="contactName"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>contactTitle</ion-label>
+        <ion-input type="text" [(ngModel)]="customer.contactTitle" name="contactTitle"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>address</ion-label>
+        <ion-input type="text" [(ngModel)]="customer.address" name="address"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>city</ion-label>
+        <ion-input type="text" [(ngModel)]="customer.city" name="city"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>region</ion-label>
+        <ion-input type="text" [(ngModel)]="customer.region" name="region"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>postalCode</ion-label>
+        <ion-input type="text" [(ngModel)]="customer.postalCode" name="postalCode"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>country</ion-label>
+        <ion-input type="text" [(ngModel)]="customer.country" name="country"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>phone</ion-label>
+        <ion-input type="text" [(ngModel)]="customer.phone" name="phone"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>fax</ion-label>
+        <ion-input type="text" [(ngModel)]="customer.fax" name="fax"></ion-input>
+    </ion-item>
+</p>
+
+</ion-content>

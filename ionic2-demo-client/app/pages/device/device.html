@@ -1,0 +1,10 @@
+<app-menu title="home"></app-menu>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let nfo of getDeviceKeys()">
+            <h2>{{nfo}}</h2>
+            <h3>{{device[nfo]}}</h3>
+        </ion-item>
+    </ion-list>
+</ion-content>

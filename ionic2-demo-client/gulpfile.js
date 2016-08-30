@@ -38,7 +38,7 @@ var isRelease = argv.indexOf('--release') > -1;
 
 gulp.task('watch', ['clean'], function (done) {
     runSequence(
-            ['sass', 'html', 'fonts', 'scripts'],
+            ['sass', 'html', 'fonts', 'scripts', 'images'],
             function () {
                 gulpWatch('app/**/*.scss', function () {
                     gulp.start('sass');
@@ -53,7 +53,7 @@ gulp.task('watch', ['clean'], function (done) {
 
 gulp.task('build', ['clean'], function (done) {
     runSequence(
-            ['sass', 'html', 'fonts', 'scripts'],
+            ['sass', 'html', 'fonts', 'scripts', 'images'],
             function () {
                 buildBrowserify({
                     minify: isRelease,
@@ -80,11 +80,22 @@ var customBuildSass = function () {
         }
     }); // generate files from /app/theme/ (original)
     buildSass({
-        src: 'app/pages/**/*.scss',
+        src: 'app/components/**/*.scss',
         dest: 'www/build/css/components',
         sassOptions: {}
     }); // generate files from /app/pages/ (customized)
+    buildSass({
+        src: 'app/pages/**/*.scss',
+        dest: 'www/build/css/pages',
+        sassOptions: {}
+    }); // generate files from /app/pages/ (customized)
 };
+
+
+gulp.task('images', function() {
+    return gulp.src(['app/assets/**'])
+        .pipe(gulp.dest('www/build/assets'));
+});
 
 gulp.task('sass', customBuildSass);//gulp.task('sass', buildSass);
 gulp.task('html', copyHTML);
