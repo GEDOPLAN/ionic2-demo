@@ -1,6 +1,6 @@
 # ionic2-demo
 
-![Alt text](/docs/image.png?raw=true "Title")
+![Alt text](/docs/title.png?raw=true "Title")
 
 Ionic2 Beispiel Anwendung mit Java EE Backend
   - Ionic2
